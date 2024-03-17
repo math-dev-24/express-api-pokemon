@@ -1,6 +1,5 @@
 const express = require("express")
 const bodyParser = require('body-parser')
-const morgan = require("morgan")
 const { initDb } = require("./src/db/sequelize")
 const app = express()
 const port = 3000
