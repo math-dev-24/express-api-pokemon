@@ -1,7 +1,8 @@
-const { Pokemon } = require('../db/sequelize')
+const { Pokemon } = require('../../db/sequelize')
+const auth = require('../../core/auth/auth')
 
 module.exports = (app) => {
-    app.get('/api/pokemon/:id', (req, res) => {
+    app.get('/api/pokemon/:id', auth, (req, res) => {
         Pokemon.findByPk(req.params.id)
             .then(pokemons => {
                 if(pokemons === null){

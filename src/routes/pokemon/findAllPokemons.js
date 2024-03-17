@@ -1,8 +1,9 @@
-const { Pokemon } = require('../db/sequelize')
+const { Pokemon } = require('../../db/sequelize')
 const { Op } = require('sequelize')
+const auth = require('../../core/auth/auth')
 
 module.exports = (app) => {
-    app.get('/api/pokemons', (req, res) => {
+    app.get('/api/pokemons', auth, (req, res) => {
         const limit = parseInt(req.query.limit) || 100000
         const name = req.query.name
 

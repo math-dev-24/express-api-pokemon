@@ -1,9 +1,9 @@
 const { ValidationError } = require('sequelize')
-const { Pokemon } = require("../db/sequelize")
-
+const { Pokemon } = require("../../db/sequelize")
+const auth = require('../../core/auth/auth')
 
 module.exports = (app) => {
-    app.put("/api/pokemon/:id", (req, res) => {
+    app.put("/api/pokemon/:id", auth, (req, res) => {
         const id = req.params.id
         Pokemon.update(req.body, {
             where: {id: id}
