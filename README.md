@@ -1,5 +1,4 @@
-## Training build Poke Api
+## API REST pokemon
 
-Express - nodeJs - Sequelize
-
-- [ ] CRUD
+- [X] CRUD de pokemon
+- [X] Auth with jwt
