@@ -1,3 +1,4 @@
+const { ValidationError } = require('sequelize')
 const { Pokemon } = require("../db/sequelize")
 
 
@@ -21,6 +22,9 @@ module.exports = (app) => {
                 res.status(500).json({message, data: e})
             }) 
         }).catch(e => {
+            if(e instanceof ValidationError){
+                return res.status(400).json({message: e.message})
+            }
             const message = "Impossible de mettre à jour le pokemon."
             res.status(500).json({message, data: e})
         })
