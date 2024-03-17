@@ -73,7 +73,7 @@ module.exports = (sequelize, DataTypes) => {
                     if (value.split(',').length > 3) {
                         throw new Error('Un pokémon ne peux pas avoir plus de trois types.')
                     }
-                    validTypes = ['Poison', 'Insecte', 'Plante', 'Feu', "Eau", "Normal", "Vol", "Electrik"]
+                    validTypes = ['Poison', 'Insecte', 'Plante', 'Feu', "Eau", "Normal", "Vol", "Electrik", "Fée" ]
                     value.split(',').forEach(type => {
                         if (!validTypes.includes(type)) {
                             throw new Error(`Le type d'un pokémon doit appartenir à la liste suivante : ${validTypes}`)
