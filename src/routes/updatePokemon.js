@@ -25,6 +25,9 @@ module.exports = (app) => {
             if(e instanceof ValidationError){
                 return res.status(400).json({message: e.message})
             }
+            if(e instanceof UniqueConstraintError){
+                return res.status(400).json({message: e})
+            }
             const message = "Impossible de mettre à jour le pokemon."
             res.status(500).json({message, data: e})
         })
